@@ -3,8 +3,7 @@ defmodule PhxLVWeb.LvCompLive do
   use PhxLVWeb, :live_component
 
   def update(_assigns, socket) do
-    user = %{id: 1, name: "Some name"}
-    {:ok, assign(socket, :user, user)}
+    {:ok, socket |> assign_user()}
   end
 
   def render(assigns) do
@@ -18,5 +17,12 @@ defmodule PhxLVWeb.LvCompLive do
     </div>
     </div>
     """
+  end
+
+  defp assign_user(socket) do
+    user = %{id: "1", name: "User Name"}
+
+    socket
+    |> assign(:user, user)
   end
 end
