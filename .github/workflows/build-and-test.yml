@@ -1,0 +1,29 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request: []
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    env:
+      MIX_ENV: test
+    name: Erlang 25.1.2 / Elixir 1.14.2-otp-25
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: 25.1.2
+          elixir-version: 1.14.2-otp-25
+      - name: "Ensure code is formatted"
+        run: "mix format --check-formatted"
+      - name: "Get and compile deps"
+        run: "mix deps.get && mix deps.compile"
+      - name: "Build"
+        run: "mix compile --warnings-as-errors"
+      - name: "Test"
+        run: "mix test --exclude requires_asdf"
