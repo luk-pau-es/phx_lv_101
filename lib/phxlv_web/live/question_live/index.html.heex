@@ -1,41 +1,48 @@
-<h1>Listing Questions</h1>
+<div class="container mx-auto">
+  <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+    Listing Questions
+  </h1>
 
-<%= if @live_action in [:new, :edit] do %>
-  <.modal return_to={Routes.question_index_path(@socket, :index)}>
-    <.live_component
-      module={PhxLVWeb.QuestionLive.FormComponent}
-      id={@question.id || :new}
-      title={@page_title}
-      action={@live_action}
-      question={@question}
-      return_to={Routes.question_index_path(@socket, :index)}
-    />
-  </.modal>
-<% end %>
+  <%= if @live_action in [:new, :edit] do %>
+    <.modal return_to={Routes.question_index_path(@socket, :index)}>
+      <.live_component
+        module={PhxLVWeb.QuestionLive.FormComponent}
+        id={@question.id || :new}
+        title={@page_title}
+        action={@live_action}
+        question={@question}
+        return_to={Routes.question_index_path(@socket, :index)}
+      />
+    </.modal>
+  <% end %>
+  <div class="container mx-auto">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="py-3 px-6">Answer</th>
+            <th scope="col" class="py-3 px-6">Question</th>
+            <th scope="col" class="py-3 px-6"></th>
+          </tr>
+        </thead>
+        <tbody id="questions">
+          <%= for question <- @questions do %>
+            <tr id={"question-#{question.id}"} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <%= question.question %>
+              </th>
+              <td class="py-4 px-6"><%= question.answer %></td>
 
-<table>
-  <thead>
-    <tr>
-      <th>Answer</th>
-      <th>Question</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="questions">
-    <%= for question <- @questions do %>
-      <tr id={"question-#{question.id}"}>
-        <td><%= question.answer %></td>
-        <td><%= question.question %></td>
-
-        <td>
-          <span><%= live_redirect "Show", to: Routes.question_show_path(@socket, :show, question) %></span>
-          <span><%= live_patch "Edit", to: Routes.question_index_path(@socket, :edit, question) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: question.id, data: [confirm: "Are you sure?"] %></span>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<span><%= live_patch "New Question", to: Routes.question_index_path(@socket, :new) %></span>
+              <td class="py-4 px-6 text-right">
+                <span><%= live_redirect "Show", to: Routes.question_show_path(@socket, :show, question), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
+                <span><%= live_patch "Edit", to: Routes.question_index_path(@socket, :edit, question), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
+                <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: question.id, data: [confirm: "Are you sure?"], class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <span><%= live_patch "New Question", to: Routes.question_index_path(@socket, :new), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
+  </div>
+</div>

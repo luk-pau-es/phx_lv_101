@@ -31,7 +31,7 @@ defmodule PhxLVWeb.LiveHelpers do
     <div id="modal" class="phx-modal fade-in" phx-remove={hide_modal()}>
       <div
         id="modal-content"
-        class="phx-modal-content fade-in-scale"
+        class="phx-modal-content fade-in-scale bg-gray-100 dark:bg-gray-900 transition-colors duration-300"
         phx-click-away={JS.dispatch("click", to: "#close")}
         phx-window-keydown={JS.dispatch("click", to: "#close")}
         phx-key="escape"
