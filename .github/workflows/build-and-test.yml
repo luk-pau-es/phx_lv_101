@@ -10,6 +10,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-20.04
+    services:
+      db:
+        image: postgres:14
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
     env:
       MIX_ENV: test
     name: Erlang 25.1.2 / Elixir 1.14.2-otp-25
@@ -26,4 +32,4 @@ jobs:
       - name: "Build"
         run: "mix compile --warnings-as-errors"
       - name: "Test"
-        run: "mix test --exclude requires_asdf"
+        run: "mix test"
