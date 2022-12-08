@@ -1,10 +1,48 @@
-<h1>Welcome to composed page</h1>
-<p>This is some paragraph</p>
-<FunComp.icons />
-<FunComp.with_slot>
-  <p style="border-style: solid; border-color: green;">This is paragraph inside function component</p>
-</FunComp.with_slot>
-<FunComp.with_assign numbers={1..5}/>
-<div>
-<.live_component module={LvCompLive} id="component_id" />
+<div class="container mx-auto">
+  <div class="text-center">
+    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+      Welcome to composed page
+    </h1>
+    <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+      This page is composed from function and live components
+    </p>
+  </div>
+  <div class="grid grid-flow-row grid-cols-2 grid-rows-3 gap-4">
+    <div data-tooltip-target="tooltip-icons" class="focus:ring-4 focus:outline-none text-center">
+      <FunComp.icons />
+    </div>
+    <div id="tooltip-icons" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+      <pre>&lt;FunComp.icons &#47;&gt;</pre>
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+    <div data-tooltip-target="tooltip-with-slot" class="focus:ring-4 focus:outline-none text-center">
+      <FunComp.with_slot>
+        <p>This is paragraph inside function component</p>
+      </FunComp.with_slot>
+    </div>
+    <div id="tooltip-with-slot" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+      <pre>
+      &lt;FunComp.with_slot&gt;
+        &lt;p&gt;
+          This is paragraph inside function component
+        &lt;&#47;p&gt;
+      &lt;&#47;FunComp.with_slot&gt;
+      </pre>
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+    <div data-tooltip-target="tooltip-with-assign" class="focus:ring-4 focus:outline-none text-center">
+      <FunComp.with_assign numbers={1..5}/>
+    </div>
+    <div id="tooltip-with-assign" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+      <pre>&lt;FunComp.with_assign numbers={1..5} &#47;&gt;</pre>
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+    <div data-tooltip-target="tooltip-live" class="focus:ring-4 focus:outline-none text-center">
+      <.live_component module={LvCompLive} id="component_id" />
+    </div>
+    <div id="tooltip-live" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+      <pre>&lt;&#183;live_component module{LvCompLive} id="component_id" &#47;&gt;</pre>
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+  </div>
 </div>
