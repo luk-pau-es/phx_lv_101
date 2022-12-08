@@ -1,5 +1,4 @@
 defmodule PhxLVWeb.LiveHelpers do
-  import Phoenix.LiveView
   import Phoenix.Component
   import Phoenix.LiveView.Helpers
 
