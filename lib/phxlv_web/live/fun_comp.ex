@@ -11,8 +11,6 @@ defmodule PhxLVWeb.FunComp do
 
     ~H"""
     <div class="p-4 hover:border-emerald-600 hover:border-2">
-      <div>
-      </div>
       <h4 class="text-gray-500 dark:text-gray-400">
         Some Raw HTML symbols: <%= raw @stars %>
       </h4>
