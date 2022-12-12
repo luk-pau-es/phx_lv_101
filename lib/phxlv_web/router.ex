@@ -16,13 +16,12 @@ defmodule PhxLVWeb.Router do
 
   scope "/", PhxLVWeb do
     pipe_through :browser
-
     live "/", BasicLive
-    live "/template", ExtTemplateLive
-    live "/composed", ComposedLive
 
     live_session :default, on_mount: PhxLVWeb.SessionAuth do
       live "/session", BasicLive
+      live "/template", ExtTemplateLive
+      live "/composed", ComposedLive
     end
 
     live_session :admin, on_mount: {PhxLVWeb.SessionAuth, :admin} do
