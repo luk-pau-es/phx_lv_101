@@ -6,30 +6,67 @@
   <%= if @live_action in [:edit] do %>
     <.modal return_to={Routes.question_show_path(@socket, :show, @question)}>
       <.live_component
-       module={PhxLVWeb.QuestionLive.FormComponent}
-       id={@question.id}
-       title={@page_title}
-       action={@live_action}
-       question={@question}
-       return_to={Routes.question_show_path(@socket, :show, @question)}
+        module={PhxLVWeb.QuestionLive.FormComponent}
+        id={@question.id}
+        title={@page_title}
+        action={@live_action}
+        question={@question}
+        return_to={Routes.question_show_path(@socket, :show, @question)}
       />
     </.modal>
   <% end %>
 
   <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-gray-400">
     <li class="flex items-center space-x-3">
-      <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <svg
+        class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        >
+        </path>
+      </svg>
       <strong>Question:</strong>
       <%= @question.question %>
     </li>
 
     <li class="flex items-center space-x-3">
-      <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+      <svg
+        class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"
+        >
+        </path>
+      </svg>
       <strong>Answer: </strong>
       <%= @question.answer %>
     </li>
   </ul>
 
-  <span><%= live_patch "Edit", to: Routes.question_show_path(@socket, :edit, @question), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"%></span> |
-  <span><%= live_redirect "Back", to: Routes.question_index_path(@socket, :index), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
+  <span>
+    <%= live_patch("Edit",
+      to: Routes.question_show_path(@socket, :edit, @question),
+      class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"
+    ) %>
+  </span>
+  |
+  <span>
+    <%= live_redirect("Back",
+      to: Routes.question_index_path(@socket, :index),
+      class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"
+    ) %>
+  </span>
 </div>
