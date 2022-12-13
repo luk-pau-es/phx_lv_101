@@ -80,5 +80,19 @@
       <pre>&lt;&#183;live_component module{CounterLive} id="counter_id" &#47;&gt;</pre>
       <div class="tooltip-arrow" data-propper-arrow></div>
     </div>
+    <div
+      data-tooltip-target="tooltip-live-render"
+      class="focus:ring-4 focus:outline-none text-center"
+    >
+      <%= live_render(@socket, PhxLVWeb.NestedLive, id: "nested-live-id") %>
+    </div>
+    <div
+      id="tooltip-live-render"
+      role="tooltip"
+      class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
+    >
+      <pre>&lt;&#37;&#61 live_render(@socket, PhxLVWeb.NestedLive, id: "nested-live-id") &#37;&gt;</pre>
+      <div class="tooltip-arrow" data-propper-arrow></div>
+    </div>
   </div>
 </div>
