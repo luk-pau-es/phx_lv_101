@@ -27,22 +27,51 @@
         </thead>
         <tbody id="questions">
           <%= for question <- @questions do %>
-            <tr id={"question-#{question.id}"} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <tr
+              id={"question-#{question.id}"}
+              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+            >
+              <th
+                scope="row"
+                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
                 <%= question.question %>
               </th>
               <td class="py-4 px-6"><%= question.answer %></td>
 
               <td class="py-4 px-6 text-right">
-                <span><%= live_redirect "Show", to: Routes.question_show_path(@socket, :show, question), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
-                <span><%= live_patch "Edit", to: Routes.question_index_path(@socket, :edit, question), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
-                <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: question.id, data: [confirm: "Are you sure?"], class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
+                <span>
+                  <%= live_redirect("Show",
+                    to: Routes.question_show_path(@socket, :show, question),
+                    class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  ) %>
+                </span>
+                <span>
+                  <%= live_patch("Edit",
+                    to: Routes.question_index_path(@socket, :edit, question),
+                    class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  ) %>
+                </span>
+                <span>
+                  <%= link("Delete",
+                    to: "#",
+                    phx_click: "delete",
+                    phx_value_id: question.id,
+                    data: [confirm: "Are you sure?"],
+                    class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  ) %>
+                </span>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
-    <span><%= live_patch "New Question", to: Routes.question_index_path(@socket, :new), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></span>
+    <span>
+      <%= live_patch("New Question",
+        to: Routes.question_index_path(@socket, :new),
+        class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"
+      ) %>
+    </span>
   </div>
 </div>

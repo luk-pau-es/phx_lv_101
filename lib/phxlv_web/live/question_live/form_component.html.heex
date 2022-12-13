@@ -4,27 +4,39 @@
   </h2>
 
   <.form
-    let={f}
+    :let={f}
     for={@changeset}
     id="question-form"
     phx-target={@myself}
     phx-change="validate"
-    phx-submit="save">
-
+    phx-submit="save"
+  >
     <div class="mb-6">
-      <%= label f, :question, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"%>
-      <%= text_input f, :question, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
-      <%= error_tag f, :question %>
+      <%= label(f, :question,
+        class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      ) %>
+      <%= text_input(f, :question,
+        class:
+          "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      ) %>
+      <%= error_tag(f, :question) %>
     </div>
 
     <div class="mb-6">
-      <%= label f, :answer, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-      <%= text_input f, :answer, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
-      <%= error_tag f, :answer %>
+      <%= label(f, :answer, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white") %>
+      <%= text_input(f, :answer,
+        class:
+          "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      ) %>
+      <%= error_tag(f, :answer) %>
     </div>
 
     <div>
-      <%= submit "Save", phx_disable_with: "Saving...", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+      <%= submit("Save",
+        phx_disable_with: "Saving...",
+        class:
+          "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      ) %>
     </div>
   </.form>
 </div>

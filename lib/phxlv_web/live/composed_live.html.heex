@@ -11,16 +11,27 @@
     <div data-tooltip-target="tooltip-icons" class="focus:ring-4 focus:outline-none text-center">
       <FunComp.icons />
     </div>
-    <div id="tooltip-icons" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+    <div
+      id="tooltip-icons"
+      role="tooltip"
+      class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
+    >
       <pre>&lt;FunComp.icons &#47;&gt;</pre>
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
-    <div data-tooltip-target="tooltip-with-slot" class="focus:ring-4 focus:outline-none text-center">
+    <div
+      data-tooltip-target="tooltip-with-slot"
+      class="focus:ring-4 focus:outline-none text-center"
+    >
       <FunComp.with_slot>
         <p>This is paragraph inside function component</p>
       </FunComp.with_slot>
     </div>
-    <div id="tooltip-with-slot" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+    <div
+      id="tooltip-with-slot"
+      role="tooltip"
+      class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
+    >
       <pre>
       &lt;FunComp.with_slot&gt;
         &lt;p&gt;
@@ -30,24 +41,42 @@
       </pre>
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
-    <div data-tooltip-target="tooltip-with-assign" class="focus:ring-4 focus:outline-none text-center">
-      <FunComp.with_assign numbers={1..5}/>
+    <div
+      data-tooltip-target="tooltip-with-assign"
+      class="focus:ring-4 focus:outline-none text-center"
+    >
+      <FunComp.with_assign numbers={1..5} />
     </div>
-    <div id="tooltip-with-assign" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+    <div
+      id="tooltip-with-assign"
+      role="tooltip"
+      class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
+    >
       <pre>&lt;FunComp.with_assign numbers={1..5} &#47;&gt;</pre>
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
     <div data-tooltip-target="tooltip-live" class="focus:ring-4 focus:outline-none text-center">
       <.live_component module={LvCompLive} id="component_id" />
     </div>
-    <div id="tooltip-live" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+    <div
+      id="tooltip-live"
+      role="tooltip"
+      class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
+    >
       <pre>&lt;&#183;live_component module{LvCompLive} id="component_id" &#47;&gt;</pre>
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
-    <div data-tooltip-target="tooltip-multiple" class="focus:ring-4 focus:outline-none text-center">
+    <div
+      data-tooltip-target="tooltip-multiple"
+      class="focus:ring-4 focus:outline-none text-center"
+    >
       <.live_component module={CounterLive} id="counter_id" />
     </div>
-    <div id="tooltip-multiple" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+    <div
+      id="tooltip-multiple"
+      role="tooltip"
+      class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
+    >
       <pre>&lt;&#183;live_component module{CounterLive} id="counter_id" &#47;&gt;</pre>
       <div class="tooltip-arrow" data-propper-arrow></div>
     </div>
