@@ -1,24 +1,24 @@
 <main>
   <%= if live_flash(@flash, :info) do %>
-  <p
-    class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800 alert"
-    role="alert"
-    phx-click="lv:clear-flash"
-    phx-value-key="info"
-  >
-    <%= live_flash(@flash, :info) %>
-  </p>
+    <p
+      class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800 alert"
+      role="alert"
+      phx-click="lv:clear-flash"
+      phx-value-key="info"
+    >
+      <%= live_flash(@flash, :info) %>
+    </p>
   <% end %>
 
   <%= if live_flash(@flash, :error) do %>
-  <p
-    class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800 alert"
-    role="alert"
-    phx-click="lv:clear-flash"
-    phx-value-key="error"
-  >
-    <%= live_flash(@flash, :error) %>
-  </p>
+    <p
+      class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800 alert"
+      role="alert"
+      phx-click="lv:clear-flash"
+      phx-value-key="error"
+    >
+      <%= live_flash(@flash, :error) %>
+    </p>
   <% end %>
 
   <%= @inner_content %>
